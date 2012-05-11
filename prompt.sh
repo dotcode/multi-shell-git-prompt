@@ -207,16 +207,7 @@ function repo_status {
 			fi
 			changes="${changes}${removed} renamed"
 		fi
-		
-		# missing file count
-		local missing="$(echo "$lstatus" | grep -c '^m!')"
-		if [[ "$missing" -gt 0 ]]; then
-			if [[ "$changes" != "" ]]; then
-				changes="${changes}, "
-			fi
-			changes="${changes}${missing} missing"
-		fi
-		
+				
 		# untracked file count
 		local untracked="$(echo "$lstatus" | grep -c '^g *?')"
 		if [[ "$untracked" -gt 0 ]]; then
